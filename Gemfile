@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
+gem 'rb-inotify', '~> 0.8.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,6 +9,7 @@ gem 'rails', '3.2.9'
 group :development do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
+  gem 'guard-rspec', '1.2.1'
 end
 
 
@@ -26,7 +28,10 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :test do
+  gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'growl', '1.0.3'
 end
 
 group :production do
