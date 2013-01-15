@@ -2,7 +2,7 @@ Given /^a user visits the signin page$/ do
   visit signin_path
 end
 
-When /^he submits invalid signing information$/ do
+When /^he submits invalid signin information$/ do
   click_button "Sign in"
 end
 
@@ -14,7 +14,7 @@ Given /^the user has an account$/ do
   @user = User.create(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar")
 end
 
-When /^the user sumits valid signin information$/ do
+When /^the user submits valid signin information$/ do
   fill_in "Email",    with: @user.email
   fill_in "Password", with: @user.password
   click_button "Sign in"
