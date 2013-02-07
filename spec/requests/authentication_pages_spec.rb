@@ -64,21 +64,21 @@ describe "Authentication" do
           end
         end
       end
-    end 
+      
+      describe "in the Users controller" do
 
-#    describe "in the Users controller" do
+        describe "visiting the edit page" do
+          before { visit edit_user_path(user) }
+          it { should have_selector('title', text: 'Sign in') }
+        end
 
-    describe "visiting the edit page" do
-      before { visit edit_user_path(user) }
-      it { should have_selector('title', text: 'Sign in') }
+        describe "subitting to the update action" do
+          before { put user_path(user) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
     end
-
-    describe "submitting to the update action" do
-      before { put user_path(user) }
-      specify { response.should redirect_to(signin_path) }
-    end
-#    end
-
+      
     describe "as wrong user" do
       let(:user) { FactoryGirl.create(:user) }
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
@@ -91,7 +91,7 @@ describe "Authentication" do
 
       describe "submitting a PUT request to the Users#update action" do
         before { put user_path(wrong_user) } 
-        specify { response.should redirect_to(root_path) } 
+        specify { response.should redirect_to(root_path) }
       end
     end
   end
